@@ -1,0 +1,71 @@
+bingapi.py is a very thin python wrapper over the Bing API.
+Bing provides a very simple Restful interface to their search engine
+and provides results in JSON and XML interface.
+
+With bingapi.py, we query the rest urls to get the JSON response,
+which is parsed with simplejson.py. bingapi.py just adds simple niceties
+like logging and error handling.
+
+Installing bingapi.py
+--------------------------
+easy_install bingapi
+
+Using bingapi.py
+--------------------------
+To use this library, you need to have an Appid from Bing. You can get it from
+http://www.bing.com/developers/createapp.aspx
+
+The meat of bingapi.py is `talk_to_bing` function. It takes a query(eg. salsa)
+and a sources(eg. web) and other optional parameters in extra_args
+(eg. {'web.offset': 40}) and returns the dictionary of Bing's response.
+
+eg
+
+In [2]: import bingapi
+
+In [3]: bing = bingapi.Bing('<Your Appid>')
+
+In [4]: bing.talk_to_bing('salsa', sources='web')
+Out[4]: 
+..........
+
+In [5]: bing.talk_to_bing('salsa', sources='web', extra_args={'web.offset':40})
+Out[5]: 
+..........
+
+Class `Bing` also provides utility functions to do the various types of seraches
+so you dont have to remember the source type.
+
+The various functions available are,
+
+do_web_search
+do_image_search
+do_news_search
+do_spell_search
+do_related_search
+do_phonebook_search
+do_answers_search
+
+All of them are used similarly.
+
+In [6]: bing.do_web_search('salsa')
+Out[6]: 
+..........
+
+In [7]: bing.do_image_search('salsa')
+Out[7]: 
+..............
+
+In [8]: bing.do_answers_search('what is salsa')
+Out[8]: 
+...............
+
+If you want to use multiple sources in one call you can use `talk_to_bing`
+directly as
+
+In [10]: bing.talk_to_bing(query='salsa', sources='web news')
+Out[10]:
+............
+
+
+
