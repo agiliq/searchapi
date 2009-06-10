@@ -10,6 +10,8 @@ Installing bingapi.py
 --------------------------
 easy_install bingapi
 
+or Svn it from https://svn.uswaretech.com/bingapi/
+
 Using bingapi.py
 --------------------------
 To use this library, you need to have an Appid from Bing. You can get it from
@@ -21,7 +23,7 @@ and a sources(eg. web) and other optional parameters in extra_args
 
 eg
 
-In [2]: import bingapi
+In [2]: from bingapi import bingapi
 
 In [3]: bing = bingapi.Bing('<Your Appid>')
 
