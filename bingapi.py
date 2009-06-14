@@ -1,6 +1,9 @@
 import urllib2
 import urllib
-import simplejson
+try:
+    import json
+except ImportError:
+    import simplejson as json
 import logging
 
 class BingException(Exception):
@@ -30,7 +33,7 @@ class Bing(object):
         final_url = self.end_point + query_string
         logging.info('final_url:%s'%final_url)
         response = urllib.urlopen(final_url)
-        data = simplejson.load(response)
+        data = json.load(response)
         if 'Errors' in data['SearchResponse']:
             logging.info('Error')
             logging.info('data:%s'%data)
