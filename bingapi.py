@@ -20,10 +20,10 @@ class Bing(object):
         
         
     def talk_to_bing(self, query, sources, extra_args={}):
+        query = urllib.quote_plus(query)
         logging.info('Query:%s'%query)
         logging.info('Sources:%s'%sources)
         logging.info('Other Args:%s'%extra_args)
-        
         payload={}
         #payload['Appid'] = self.app_id
         payload['query'] = query

@@ -14,6 +14,7 @@ class Boss(object):
                           filename=self.log_filename) 
     
     def talk_to_yahoo(self, type_, query, **kwargs):
+        query = urllib.quote_plus(query)
         logging.info('Query:%s'%query)
         logging.info('type_:%s'%type_)
         logging.info('Other Args:%s'%kwargs)
