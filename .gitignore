@@ -9,3 +9,4 @@ localsettings.py
 *.tmp*~
 *CACHE*
 *.kpf
+django_searchapi.egg-info/
